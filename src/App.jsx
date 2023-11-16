@@ -3,6 +3,7 @@ import Product from "./pages/Product";
 import HomePage from "./pages/HomePage";
 import Pricing from "./pages/Pricing";
 import PageNotFound from "./pages/PageNotFound";
+import AppLayout from "./pages/AppLayout";
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
         <Route
           path='pricing'
           element={<Pricing />}
+        />
+        <Route
+          path='app'
+          element={<AppLayout />}
         />
         <Route
           path='*'
