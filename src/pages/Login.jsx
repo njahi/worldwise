@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
+import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import Button from "../components/Button";
 import Nav from "../components/Nav";
-import { useAuth } from "../contexts/FakeAuthContext";
+// import { useAuth } from "../context/FakeAuthContext";
 import styles from "./Login.module.css";
 
 export default function Login() {
@@ -10,29 +10,27 @@ export default function Login() {
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
 
-  const { login, isAuthenticated } = useAuth();
-  const navigate = useNavigate();
+  // const { login, isAuthenticated } = useAuth();
+  // const navigate = useNavigate();
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  // function handleSubmit(e) {
+  //   e.preventDefault();
 
-    if (email && password) login(email, password);
-  }
+  //   if (email && password) login(email, password);
+  // }
 
-  useEffect(
-    function () {
-      if (isAuthenticated) navigate("/app", { replace: true });
-    },
-    [isAuthenticated, navigate]
-  );
+  // useEffect(
+  //   function () {
+  //     if (isAuthenticated) navigate("/app", { replace: true });
+  //   },
+  //   [isAuthenticated, navigate]
+  // );
 
   return (
     <main className={styles.login}>
       <Nav />
 
-      <form
-        className={styles.form}
-        onSubmit={handleSubmit}>
+      <form className={styles.form}>
         <div className={styles.row}>
           <label htmlFor='email'>Email address</label>
           <input
@@ -54,7 +52,7 @@ export default function Login() {
         </div>
 
         <div>
-          <Button type='primary'>Login</Button>
+          <button type='primary'>Login</button>
         </div>
       </form>
     </main>
