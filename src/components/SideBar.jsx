@@ -10,7 +10,7 @@ export default function SideBar() {
       <p>List of cities</p>
       <footer className={styles.footer}>
         <p className={styles.copyright}>
-          &copy: copyright {new Date().getFullYear()}by WorldWise inc.
+          copyright {new Date().getFullYear()}by WorldWise inc.
         </p>
       </footer>
     </div>
