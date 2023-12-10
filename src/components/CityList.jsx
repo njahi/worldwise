@@ -6,7 +6,9 @@ export default function CityList({ cities, isLoading }) {
 
   return (
     <ul className={styles.cityList}>
-      {cities.map((city) => (<div>{city.cityName}</div>)())}
+      {cities.map((city) => (
+        <div key={city.id}>{city.cityName}</div>
+      ))}
     </ul>
   );
 }
