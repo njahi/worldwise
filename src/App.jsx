@@ -9,7 +9,7 @@ import CityList from "./components/CityList";
 import { useEffect, useState } from "react";
 const Base_Url = "http://localhost:9000";
 function App() {
-  const [cities, setCities] = useState({});
+  const [cities, setCities] = useState([]);
   const [isLoading, seTIsLoading] = useState(false);
   useEffect(function () {
     async function fetchCities() {

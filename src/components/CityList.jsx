@@ -1,4 +1,12 @@
+/* eslint-disable react/prop-types */
 import styles from "./CityList.module.css";
-export default function CityList() {
-  return <ul className={styles.cityList}>List</ul>;
+import Spinner from "./Spinner";
+export default function CityList({ cities, isLoading }) {
+  if (isLoading) return <Spinner />;
+
+  return (
+    <ul className={styles.cityList}>
+      {cities.map((city) => (<div>{city.cityName}</div>)())}
+    </ul>
+  );
 }
