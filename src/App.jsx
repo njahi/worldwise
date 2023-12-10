@@ -51,11 +51,21 @@ function App() {
           element={<AppLayout />}>
           <Route
             index
-            element={<CityList />}
+            element={
+              <CityList
+                cities={cities}
+                isLoading={isLoading}
+              />
+            }
           />
           <Route
             path='cities'
-            element={<CityList />}
+            element={
+              <CityList
+                cities={cities}
+                isLoading={isLoading}
+              />
+            }
           />
           <Route
             path='countries'
