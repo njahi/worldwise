@@ -14,6 +14,7 @@ export default function CityItem({ city }) {
       <span className={styles.emoji}>{emoji}</span>
       <h3 className={styles.name}>{cityName}</h3>
       <time className={styles.date}>{formatDate(date)}</time>
+      <button className={styles.deleteBtn}></button>
     </li>
   );
 }
