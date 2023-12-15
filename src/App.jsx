@@ -68,6 +68,11 @@ function App() {
               />
             }
           />
+          {/* <Route
+            path='cities/:id'
+            element={<City />}
+          /> */}
+
           <Route
             path='countries'
             element={
