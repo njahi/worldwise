@@ -14,7 +14,7 @@ export default function CityItem({ city }) {
     <li>
       <Link
         className={styles.cityItem}
-        to={`${id}`}>
+        to={`http://localhost:5173/app/cities/${id}`}>
         <span className={styles.emoji}>{emoji}</span>
         <h3 className={styles.name}>{cityName}</h3>
         <time className={styles.date}>{formatDate(date)}</time>
