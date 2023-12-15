@@ -71,7 +71,7 @@ function App() {
           />
           <Route
             path='cities/:id'
-            element={<City />}
+            element={<City cities={cities} />}
           />
 
           <Route
