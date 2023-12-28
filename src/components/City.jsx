@@ -26,9 +26,7 @@ function City({ cities }) {
     <div className={styles.city}>
       {cities.map((city) => (
         <>
-          <div
-            className={styles.row}
-            key={id}>
+          <div className={styles.row}>
             <h6>{city.cityName}</h6>
             <h3>
               <span>{city.emoji}</span> {city.cityName}
