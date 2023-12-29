@@ -54,12 +54,12 @@ function App() {
           element={<AppLayout />}>
           <Route
             index
-            // element={
-            //   <Navigate
-            //     replace
-            //     to='cities'
-            //   />
-            // }
+            element={
+              <Navigate
+                replace
+                to='cities'
+              />
+            }
           />
           <Route
             path='cities'
