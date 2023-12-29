@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import CityList from "./components/CityList";
 import CountryList from "./components/CountryList";
 import City from "./components/City";
+import { Navigate } from "react-router-dom";
 const Base_Url = "http://localhost:9000";
 function App() {
   const [cities, setCities] = useState([]);
@@ -53,12 +54,12 @@ function App() {
           element={<AppLayout />}>
           <Route
             index
-            element={
-              <CityList
-                cities={cities}
-                isLoading={isLoading}
-              />
-            }
+            // element={
+            //   <Navigate
+            //     replace
+            //     to='cities'
+            //   />
+            // }
           />
           <Route
             path='cities'
