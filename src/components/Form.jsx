@@ -52,7 +52,7 @@ function Form() {
       </div>
 
       <div className={styles.buttons}>
-        {/* <Button type='primary'>Add</Button>
+        <Button type='primary'>Add</Button>
         <Button
           type='back'
           onClick={(e) => {
@@ -60,7 +60,7 @@ function Form() {
             navigate(-1);
           }}>
           &larr; Back
-        </Button> */}
+        </Button>
       </div>
     </form>
   );
