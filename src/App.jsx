@@ -9,64 +9,67 @@ import CityList from "./components/CityList";
 import CountryList from "./components/CountryList";
 import City from "./components/City";
 import Form from "./components/Form";
+import { CitiesProvider } from "./context/CityContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          index
-          element={<HomePage />}
-        />
-        <Route
-          path='product'
-          element={<Product />}
-        />
-        <Route
-          path='pricing'
-          element={<Pricing />}
-        />
-        <Route
-          path='login'
-          element={<Login />}
-        />
-
-        <Route
-          path='app'
-          element={<AppLayout />}>
+    <CitiesProvider>
+      <BrowserRouter>
+        <Routes>
           <Route
             index
-            element={
-              <Navigate
-                replace
-                to='cities'
-              />
-            }
+            element={<HomePage />}
           />
           <Route
-            path='cities'
-            element={<CityList />}
+            path='product'
+            element={<Product />}
           />
           <Route
-            path='cities/:id'
-            element={<City />}
+            path='pricing'
+            element={<Pricing />}
+          />
+          <Route
+            path='login'
+            element={<Login />}
           />
 
           <Route
-            path='countries'
-            element={<CountryList />}
-          />
+            path='app'
+            element={<AppLayout />}>
+            <Route
+              index
+              element={
+                <Navigate
+                  replace
+                  to='cities'
+                />
+              }
+            />
+            <Route
+              path='cities'
+              element={<CityList />}
+            />
+            <Route
+              path='cities/:id'
+              element={<City />}
+            />
+
+            <Route
+              path='countries'
+              element={<CountryList />}
+            />
+            <Route
+              path='form'
+              element={<Form />}
+            />
+          </Route>
           <Route
-            path='form'
-            element={<Form />}
+            path='*'
+            element={<PageNotFound />}
           />
-        </Route>
-        <Route
-          path='*'
-          element={<PageNotFound />}
-        />
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </CitiesProvider>
   );
 }
 

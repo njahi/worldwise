@@ -2,7 +2,7 @@ import { createContext, useState, useEffect, useContext } from "react";
 
 const CityContext = createContext();
 const Base_Url = "http://localhost:9000";
-function citiesProvider({ children }) {
+function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [isLoading, seTIsLoading] = useState(false);
   useEffect(function () {
@@ -29,9 +29,9 @@ function citiesProvider({ children }) {
       {children}
     </CityContext.Provider>
   );
-  //   function useCities() {
-  //     const context = useContext(CityContext);
-  //     return context;
-  //   }
+  function useCities() {
+    const context = useContext(CityContext);
+    return context;
+  }
 }
-export { citiesProvider };
+export { CitiesProvider, useCities };
