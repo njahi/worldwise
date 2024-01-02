@@ -29,9 +29,9 @@ function CitiesProvider({ children }) {
       {children}
     </CityContext.Provider>
   );
-  function useCities() {
-    const context = useContext(CityContext);
-    return context;
-  }
+}
+function useCities() {
+  const context = useContext(CityContext);
+  return context;
 }
 export { CitiesProvider, useCities };
