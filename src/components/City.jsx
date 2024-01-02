@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import { useParams } from "react-router-dom";
 import styles from "./City.module.css";
+import { useCities } from "../context/CityContext";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -11,7 +12,7 @@ const formatDate = (date) =>
     weekday: "long",
   }).format(new Date(date));
 
-function City({ cities }) {
+function City() {
   const { id } = useParams();
   // // TEMP DATA
   // const currentCity = {
@@ -20,6 +21,7 @@ function City({ cities }) {
   //   date: "2027-10-31T15:59:59.138Z",
   //   notes: "My favorite city so far!",
   // };
+  const { cities } = useCities();
 
   const { cityName, emoji, date, notes } = cities;
   return (
