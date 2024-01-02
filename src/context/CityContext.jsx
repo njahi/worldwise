@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 
 const CityContext = createContext();
 const Base_Url = "http://localhost:9000";
@@ -20,5 +20,18 @@ function citiesProvider({ children }) {
     }
     fetchCities();
   }, []);
+  return (
+    <CityContext.Provider
+      value={{
+        cities,
+        isLoading,
+      }}>
+      {children}
+    </CityContext.Provider>
+  );
+  //   function useCities() {
+  //     const context = useContext(CityContext);
+  //     return context;
+  //   }
 }
-export { citiesProvider, useCities };
+export { citiesProvider };
