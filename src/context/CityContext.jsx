@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createContext, useState, useEffect, useContext } from "react";
 
 const CityContext = createContext();
@@ -32,6 +33,8 @@ function CitiesProvider({ children }) {
 }
 function useCities() {
   const context = useContext(CityContext);
+  if (context === undefined)
+    throw new Error("The contect was used outside the context provider");
   return context;
 }
 export { CitiesProvider, useCities };
