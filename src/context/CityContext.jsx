@@ -7,6 +7,7 @@ const Base_Url = "http://localhost:9000";
 function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [isLoading, seTIsLoading] = useState(false);
+  const [currentCity, setCurrentCity] = useState({});
   useEffect(function () {
     async function fetchCities() {
       try {
