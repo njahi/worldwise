@@ -4,7 +4,6 @@ import styles from "./Map.module.css";
 import { useState } from "react";
 import { useCities } from "../context/CityContext";
 export default function Map() {
-  const navigate = useNavigate();
   const { cities } = useCities();
   const [mapPosition, setMapPosition] = useState([40, 0]);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,8 +12,8 @@ export default function Map() {
   return (
     <div className={styles.mapContainer}>
       <MapContainer
-        center={{ lat, lng }}
-        zoom={13}
+        center={[lat, lng]}
+        zoom={6}
         scrollWheelZoom={true}
         className={styles.map}>
         <TileLayer
