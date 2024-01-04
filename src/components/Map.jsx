@@ -9,15 +9,12 @@ export default function Map() {
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
   return (
-    <div
-      className={styles.mapContainer}
-      onClick={() => {
-        navigate("form");
-      }}>
+    <div className={styles.mapContainer}>
       <MapContainer
         center={mapPosition}
         zoom={13}
-        scrollWheelZoom={false}>
+        scrollWheelZoom={false}
+        className={styles.map}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
