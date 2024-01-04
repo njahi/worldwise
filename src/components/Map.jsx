@@ -15,7 +15,7 @@ export default function Map() {
       <MapContainer
         center={mapPosition}
         zoom={13}
-        scrollWheelZoom={false}
+        scrollWheelZoom={true}
         className={styles.map}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -34,4 +34,3 @@ export default function Map() {
     </div>
   );
 }
-maped each city by id giving them each a marker from the react ui library components from the react-leaflet package
