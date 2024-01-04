@@ -21,7 +21,7 @@ export default function Map() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url='https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'
         />
-        {/* {cities.map((city) => (
+        {cities.map((city) => (
           <Marker
             position={[city.position.lat, city.position.lng]}
             key={city.id}>
@@ -29,9 +29,9 @@ export default function Map() {
               A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
           </Marker>
-        ))} */}
+        ))}
       </MapContainer>
     </div>
   );
 }
-// maped each city by id giving them each a marker from the react ui library components from the react-leaflet package
+maped each city by id giving them each a marker from the react ui library components from the react-leaflet package
