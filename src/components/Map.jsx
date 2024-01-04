@@ -13,7 +13,7 @@ export default function Map() {
   return (
     <div className={styles.mapContainer}>
       <MapContainer
-        center={mapPosition}
+        center={{ lat, lng }}
         zoom={13}
         scrollWheelZoom={true}
         className={styles.map}>
@@ -25,7 +25,7 @@ export default function Map() {
           <Marker
             position={[city.position.lat, city.position.lng]}
             key={city.id}>
-            <Popup key>
+            <Popup>
               <span>{city.emoji}</span>
               <span>{city.cityName}</span>
             </Popup>
