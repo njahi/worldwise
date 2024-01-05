@@ -45,9 +45,20 @@ export default function Map() {
             </Popup>
           </Marker>
         ))}
-        {/* <ChangeCenter position={mapPosition} />
-        <DetectClick /> */}
+        <ChangeCenter position={mapPosition} />
+        <DetectClick />
       </MapContainer>
     </div>
   );
+}
+function ChangeCenter({ position }) {
+  const map = useMap();
+  map.setView(position);
+  return null;
+}
+function DetectClick() {
+  const navigate = useNavigate();
+  useMapEvent({
+    click: (e) => navigate(`form?llat=${e.latlng.lat} & lng=${e.latlng.lng} `),
+  });
 }
