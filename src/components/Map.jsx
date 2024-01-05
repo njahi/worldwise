@@ -18,13 +18,12 @@ export default function Map() {
   const [searchParams] = useSearchParams();
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
-  // setting the map to change marker position using the url query strings(lat && lng)
-  // useEffect(
-  //   function () {
-  //     if (lat && lng) setMapPosition([lat, lng]);
-  //   },
-  //   [lat, lng]
-  // );
+  useEffect(
+    function () {
+      if (lat && lng) setMapPosition([lat, lng]);
+    },
+    [lat, lng]
+  );
   return (
     <div className={styles.mapContainer}>
       <MapContainer
