@@ -65,4 +65,3 @@ function City() {
 }
 
 export default City;
-// imported values from the cities context api custom hook to get the current city and get city function that passes an id from the url stored as a state

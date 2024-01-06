@@ -28,4 +28,3 @@ export default function CityItem({ city }) {
     </li>
   );
 }
-// using more than one styles classes and implementing conditional rendering of the classes as per the active cityItem
