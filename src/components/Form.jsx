@@ -7,6 +7,7 @@ import Message from "./Message";
 import Spinner from "./Spinner";
 import BackButton from "./BackButton";
 import useUrlPosition from "../hooks/useUrlPosition";
+import { useCities } from "../context/CityContext";
 function convertToEmoji(countryCode) {
   const codePoints = countryCode
     .toUpperCase()
@@ -25,8 +26,23 @@ function Form() {
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
   const { lat, lng } = useUrlPosition();
+  const { createCity } = useCities();
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   if (!cityName || !date) return;
+  //   const newCity = {
+  //     cityName,
+  //     country,
+  //     emoji,
+  //     date,
+  //     notes,
+  //     position: { lat, lng },
+  //   };
+  //   createCity(newCity);
+  // }
   useEffect(
     function () {
+      if (!lat && !lng) return;
       async function getCityData() {
         try {
           setIsLoadingData(true);
@@ -36,8 +52,10 @@ function Form() {
           );
           const data = await res.json();
           if (!data.countryCode)
-            throw new Error("there doesnt seem to be a city");
-          setCityName(data.city);
+            throw new Error(
+              "There doesnt seem to be such a city. Click somewhere else "
+            );
+          setCityName(data.city || data.locality || "");
           setCountry(data.countryName);
           setEmoji(convertToEmoji(data.countryCode));
         } catch (error) {
@@ -50,10 +68,14 @@ function Form() {
     },
     [lat, lng]
   );
+  if (!lat && !lng)
+    return <Message message={"you have to first click on the map"} />;
   if (isLoadingData) return <Spinner />;
   if (geocodingError) return <Message message={geocodingError} />;
   return (
-    <form className={styles.form}>
+    <form
+      className={styles.form}
+      onSubmit={handleSubmit}>
       <div className={styles.row}>
         <label htmlFor='cityName'>cityName</label>
         <input
@@ -91,4 +113,6 @@ function Form() {
 }
 
 export default Form;
-// nested the reusable Backbutton component
+// rendered the form component conditionally thats is if the params from the url are available
+// creating a new city to the array and into the fake api
+// replaced the date input with a datePicker component from react Date picker

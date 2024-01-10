@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import { useCities } from "../context/CityContext";
 import { useGeolocation } from "../hooks/useGeolocation";
 import Button from "./Button";
+import useUrlPosition from "../hooks/useUrlPosition";
 export default function Map() {
   const { cities } = useCities();
   const [mapPosition, setMapPosition] = useState([40, 0]);
@@ -23,9 +24,10 @@ export default function Map() {
     position: geolocationPosition,
     getPosition,
   } = useGeolocation();
-  const [searchParams] = useSearchParams();
-  const lat = searchParams.get("lat");
-  const lng = searchParams.get("lng");
+  // const [searchParams] = useSearchParams();
+  // const lat = searchParams.get("lat");
+  // const lng = searchParams.get("lng");
+  const { lat, lng } = useUrlPosition();
   useEffect(
     function () {
       if (lat && lng) setMapPosition([lat, lng]);
@@ -85,3 +87,4 @@ function DetectClick() {
     click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng} `),
   });
 }
+// replaced the states with a hook that avails the states globally to each component
