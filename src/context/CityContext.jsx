@@ -73,5 +73,3 @@ function useCities() {
   return context;
 }
 export { CitiesProvider, useCities };
-// added a new api for creating a new city
-// after posting the data we setcities by adding the data in the cities array. setCities((cities) => [...cities, data]);
