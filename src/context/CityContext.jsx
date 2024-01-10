@@ -35,24 +35,24 @@ function CitiesProvider({ children }) {
       seTIsLoading(false);
     }
   }
-  // async function createCity(newCity) {
-  //   try {
-  //     seTIsLoading(true);
-  //     const res = await fetch(`${Base_Url}/cities`, {
-  //       method: "POST",
-  //       body: JSON.stringify(newCity),
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     });
-  //     const data = await res.json();
-  //     setCities((cities) => [...cities, data]);
-  //   } catch (error) {
-  //     alert("There was a problem adding a new city");
-  //   } finally {
-  //     seTIsLoading(false);
-  //   }
-  // }
+  async function createCity(newCity) {
+    try {
+      seTIsLoading(true);
+      const res = await fetch(`${Base_Url}/cities`, {
+        method: "POST",
+        body: JSON.stringify(newCity),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
+      setCities((cities) => [...cities, data]);
+    } catch (error) {
+      alert("There was a problem adding a new city");
+    } finally {
+      seTIsLoading(false);
+    }
+  }
   return (
     <CityContext.Provider
       value={{
