@@ -87,4 +87,3 @@ function DetectClick() {
     click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng} `),
   });
 }
-// replaced the states with a hook that avails the states globally to each component
