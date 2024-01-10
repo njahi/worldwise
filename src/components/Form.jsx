@@ -27,19 +27,19 @@ function Form() {
   const [notes, setNotes] = useState("");
   const { lat, lng } = useUrlPosition();
   const { createCity } = useCities();
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   if (!cityName || !date) return;
-  //   const newCity = {
-  //     cityName,
-  //     country,
-  //     emoji,
-  //     date,
-  //     notes,
-  //     position: { lat, lng },
-  //   };
-  //   createCity(newCity);
-  // }
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!cityName || !date) return;
+    const newCity = {
+      cityName,
+      country,
+      emoji,
+      date,
+      notes,
+      position: { lat, lng },
+    };
+    createCity(newCity);
+  }
   useEffect(
     function () {
       if (!lat && !lng) return;
