@@ -38,7 +38,7 @@ function Form() {
       notes,
       position: { lat, lng },
     };
-    createCity(newCity);
+   await  createCity(newCity);
   }
   useEffect(
     function () {
