@@ -6,6 +6,7 @@ import Button from "./Button";
 import Message from "./Message";
 import Spinner from "./Spinner";
 import BackButton from "./BackButton";
+import DatePicker from "react-datepicker";
 import useUrlPosition from "../hooks/useUrlPosition";
 import { useCities } from "../context/CityContext";
 function convertToEmoji(countryCode) {
@@ -88,10 +89,10 @@ function Form() {
 
       <div className={styles.row}>
         <label htmlFor='date'>When did you go to {cityName}?</label>
-        <input
+        <DatePicker
           id='date'
-          onChange={(e) => setDate(e.target.value)}
-          value={date}
+          selected={date}
+          onChange={(date) => setDate(date)}
         />
       </div>
 
@@ -107,12 +108,10 @@ function Form() {
       <div className={styles.buttons}>
         <Button type='primary'>Add</Button>
         <BackButton />
+        date
       </div>
     </form>
   );
 }
 
 export default Form;
-// rendered the form component conditionally thats is if the params from the url are available
-// creating a new city to the array and into the fake api
-// replaced the date input with a datePicker component from react Date picker
