@@ -47,7 +47,7 @@ export default function Map() {
         <Button
           type='position'
           onClick={getPosition}>
-          {isLoadingPosition ? "loading" : "use your position"}
+          {isLoadingPosition ? "loading..." : "use your position"}
         </Button>
       )}
       <MapContainer

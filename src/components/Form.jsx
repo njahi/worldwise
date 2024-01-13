@@ -37,7 +37,7 @@ function Form() {
       emoji,
       date,
       notes,
-      position: { lat, lng },
+      position: [lat, lng],
     };
     createCity(newCity);
   }
@@ -49,14 +49,15 @@ function Form() {
           setIsLoadingData(true);
           setGeocodingError("");
           const res = await fetch(
-            `${Base_Url}? latitude=${lat}&longitude=${lng}`
+            `${Base_Url}?latitude=${lat}&longitude=${lng}`
           );
           const data = await res.json();
+          console.log(data);
           if (!data.countryCode)
             throw new Error(
               "There doesnt seem to be such a city. Click somewhere else "
             );
-          setCityName(data.city || data.locality || "");
+          setCityName(data.city);
           setCountry(data.countryName);
           setEmoji(convertToEmoji(data.countryCode));
         } catch (error) {
