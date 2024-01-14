@@ -37,7 +37,7 @@ function Form() {
       emoji,
       date,
       notes,
-      position: [lat, lng],
+      position: { lat, lng },
     };
     createCity(newCity);
   }
@@ -57,7 +57,7 @@ function Form() {
             throw new Error(
               "There doesnt seem to be such a city. Click somewhere else "
             );
-          setCityName(data.city);
+          setCityName(data.city || data.locality || "");
           setCountry(data.countryName);
           setEmoji(convertToEmoji(data.countryCode));
         } catch (error) {
