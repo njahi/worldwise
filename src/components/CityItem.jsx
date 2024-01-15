@@ -12,9 +12,10 @@ const formatDate = (date) =>
 
 export default function CityItem({ city }) {
   const { cityName, emoji, date, id, position } = city;
-  const { currentCity } = useCities();
+  const { currentCity, deleteCity } = useCities();
   function handleClick(e) {
     e.preventDefault();
+    deleteCity(id);
   }
   return (
     <li>
