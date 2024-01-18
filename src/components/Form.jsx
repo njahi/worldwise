@@ -7,6 +7,7 @@ import Message from "./Message";
 import Spinner from "./Spinner";
 import BackButton from "./BackButton";
 import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import { useCities } from "../context/CityContext";
 function convertToEmoji(countryCode) {
