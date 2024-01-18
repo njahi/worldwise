@@ -26,7 +26,7 @@ function Form() {
   const [emoji, setEmoji] = useState("");
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
-  const { mapLat, mapLng } = useUrlPosition();
+  const [mapLat, mapLng] = useUrlPosition();
   const { createCity } = useCities();
   function handleSubmit(e) {
     e.preventDefault();
