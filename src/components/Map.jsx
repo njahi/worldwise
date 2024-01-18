@@ -9,28 +9,30 @@ import {
   useMap,
   useMapEvent,
 } from "react-leaflet";
-import styles from "./Map.module.css";
+import { useUrlPosition } from "../hooks/useUrlPosition";
 import { useEffect, useState } from "react";
 import { useCities } from "../context/CityContext";
 import { useGeolocation } from "../hooks/useGeolocation";
 import Button from "./Button";
-import { useUrlPosition } from "../hooks/useUrlPosition";
-export default function Map() {
-  const { cities } = useCities();
-  const [mapPosition, setMapPosition] = useState([40, 0]);
+import styles from "./Map.module.css";
 
+export default function Map() {
+  const [mapPosition, setMapPosition] = useState([40, 0]);
+  const [mapLat, mapLng] = useUrlPosition();
   const {
     isLoading: isLoadingPosition,
     position: geolocationPosition,
     getPosition,
   } = useGeolocation();
-  const [lat, lng] = useUrlPosition();
+  const { cities } = useCities();
+
   useEffect(
     function () {
-      if (lat && lng) setMapPosition([lat, lng]);
+      if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
     },
-    [lat, lng]
+    [mapLat, mapLng]
   );
+
   useEffect(
     function () {
       if (geolocationPosition)
@@ -38,6 +40,7 @@ export default function Map() {
     },
     [geolocationPosition]
   );
+
   return (
     <div className={styles.mapContainer}>
       {!geolocationPosition && (
