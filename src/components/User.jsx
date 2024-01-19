@@ -1,4 +1,5 @@
 import { useAuth } from "../context/fakeAuthContext";
+import { useNavigate } from "react-router-dom";
 import styles from "./User.module.css";
 
 const FAKE_USER = {
@@ -11,10 +12,12 @@ const FAKE_USER = {
 function User() {
   const { logout } = useAuth;
   const user = FAKE_USER;
+  const navigate = useNavigate();
 
   function handleClick(e) {
     e.preventDefault();
     logout();
+    navigate("/");
   }
 
   return (
