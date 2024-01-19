@@ -28,7 +28,7 @@ function Form() {
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
   const [mapLat, mapLng] = useUrlPosition();
-  const { createCity } = useCities();
+  const { createCity, isLoading } = useCities();
   function handleSubmit(e) {
     e.preventDefault();
     if (!cityName || !date) return;
@@ -40,6 +40,7 @@ function Form() {
       notes,
       position: { mapLat, mapLng },
     };
+
     createCity(newCity);
   }
   useEffect(
@@ -77,7 +78,7 @@ function Form() {
   if (geocodingError) return <Message message={geocodingError} />;
   return (
     <form
-      className={styles.form}
+      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
       onSubmit={handleSubmit}>
       <div className={styles.row}>
         <label htmlFor='cityName'>cityName</label>

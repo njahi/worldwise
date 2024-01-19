@@ -46,6 +46,7 @@ function CitiesProvider({ children }) {
         },
       });
       const data = await res.json();
+      console.log(data);
       setCities((cities) => [...cities, data]);
     } catch (error) {
       alert("There was a problem adding a new city");
