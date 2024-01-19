@@ -10,7 +10,7 @@ const FAKE_USER = {
 };
 
 function User() {
-  const { logout } = useAuth;
+  const { logout } = useAuth();
   const user = FAKE_USER;
   const navigate = useNavigate();
 
