@@ -35,6 +35,54 @@
         "lng": "-4.812011718750001"
       },
       "id": 7394
+    },
+    {
+      "cityName": "Pigna",
+      "country": "Italy",
+      "emoji": "🇮🇹",
+      "date": "2024-01-19T09:27:32.951Z",
+      "notes": "pretty women there",
+      "position": {
+        "lat": "43.929549935614595",
+        "lng": "7.602539062500001"
+      },
+      "id": 7395
+    },
+    {
+      "cityName": "Meru",
+      "country": "Kenya",
+      "emoji": "🇰🇪",
+      "date": "2024-01-19T09:28:11.430Z",
+      "notes": "khat addiction there\n",
+      "position": {
+        "lat": "0.17578097424708533",
+        "lng": "37.61718750000001"
+      },
+      "id": 7396
+    },
+    {
+      "cityName": "Menongue",
+      "country": "Angola",
+      "emoji": "🇦🇴",
+      "date": "2024-01-19T09:30:59.130Z",
+      "notes": "good peaople",
+      "position": {
+        "lat": "-14.859850400601037",
+        "lng": "17.666015625000004"
+      },
+      "id": 7397
+    },
+    {
+      "cityName": "Foggaret Ezzaou",
+      "country": "Algeria",
+      "emoji": "🇩🇿",
+      "date": "2024-01-19T09:49:47.435Z",
+      "notes": "nice",
+      "position": {
+        "lat": "26.902476886279832",
+        "lng": "4.482421875000001"
+      },
+      "id": 7398
     }
   ]
 }
