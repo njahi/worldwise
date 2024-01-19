@@ -31,7 +31,7 @@ function Form() {
   const [lat, lng] = useUrlPosition();
   const { createCity, isLoading } = useCities();
   const navigate = useNavigate();
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (!cityName || !date) return;
     const newCity = {
@@ -42,9 +42,8 @@ function Form() {
       notes,
       position: { lat, lng },
     };
-    console.log(newCity);
 
-    createCity(newCity);
+    await createCity(newCity);
     navigate("/app/cities");
   }
   useEffect(
