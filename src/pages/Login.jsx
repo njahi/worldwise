@@ -2,7 +2,7 @@ import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 // import Button from "../components/Button";
 import Nav from "../components/Nav";
-// import { useAuth } from "../context/FakeAuthContext";
+import { useAuth } from "../context/FakeAuthContext";
 import styles from "./Login.module.css";
 
 export default function Login() {
@@ -10,7 +10,7 @@ export default function Login() {
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
 
-  // const { login, isAuthenticated } = useAuth();
+  const { login, isAuthenticated } = useAuth();
   // const navigate = useNavigate();
 
   // function handleSubmit(e) {
