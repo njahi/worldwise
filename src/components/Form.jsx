@@ -8,6 +8,7 @@ import Spinner from "./Spinner";
 import BackButton from "./BackButton";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useNavigate } from "react-router-dom";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import { useCities } from "../context/CityContext";
 function convertToEmoji(countryCode) {
@@ -29,6 +30,7 @@ function Form() {
   const [notes, setNotes] = useState("");
   const [mapLat, mapLng] = useUrlPosition();
   const { createCity, isLoading } = useCities();
+  const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
     if (!cityName || !date) return;
@@ -42,6 +44,7 @@ function Form() {
     };
 
     createCity(newCity);
+    navigate("/app/cities");
   }
   useEffect(
     function () {
