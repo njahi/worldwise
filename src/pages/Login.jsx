@@ -10,7 +10,7 @@ export default function Login() {
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
 
-  const { login, isAuthenticated } = useAuth;
+  const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   function handleSubmit(e) {
@@ -18,7 +18,6 @@ export default function Login() {
 
     if (email && password) login(email, password);
   }
-
   useEffect(
     function () {
       if (isAuthenticated) navigate("/app", { replace: true });
