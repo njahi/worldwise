@@ -1,5 +1,5 @@
-import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 // import Button from "../components/Button";
 import Nav from "../components/Nav";
 import { useAuth } from "../context/FakeAuthContext";
@@ -11,7 +11,7 @@ export default function Login() {
   const [password, setPassword] = useState("qwerty");
 
   const { login, isAuthenticated } = useAuth();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   // function handleSubmit(e) {
   //   e.preventDefault();
@@ -19,12 +19,12 @@ export default function Login() {
   //   if (email && password) login(email, password);
   // }
 
-  // useEffect(
-  //   function () {
-  //     if (isAuthenticated) navigate("/app", { replace: true });
-  //   },
-  //   [isAuthenticated, navigate]
-  // );
+  useEffect(
+    function () {
+      if (isAuthenticated) navigate("/app", { replace: true });
+    },
+    [isAuthenticated, navigate]
+  );
 
   return (
     <main className={styles.login}>
