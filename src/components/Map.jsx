@@ -18,7 +18,7 @@ import styles from "./Map.module.css";
 
 export default function Map() {
   const [mapPosition, setMapPosition] = useState([40, 0]);
-  const [mapLat, mapLng] = useUrlPosition();
+  const [lat, lng] = useUrlPosition();
   const {
     isLoading: isLoadingPosition,
     position: geolocationPosition,
@@ -28,9 +28,9 @@ export default function Map() {
 
   useEffect(
     function () {
-      if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
+      if (lat && lng) setMapPosition([lat, lng]);
     },
-    [mapLat, mapLng]
+    [lat, lng]
   );
 
   useEffect(

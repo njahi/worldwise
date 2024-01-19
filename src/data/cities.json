@@ -23,6 +23,18 @@
         "lng": -3.7133789062500004
       },
       "id": 1780
+    },
+    {
+      "cityName": "Helechosa de los Montes",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-01-19T09:21:05.538Z",
+      "notes": "nice trip",
+      "position": {
+        "lat": "39.2832938689385",
+        "lng": "-4.812011718750001"
+      },
+      "id": 7394
     }
   ]
 }

@@ -28,7 +28,7 @@ function Form() {
   const [emoji, setEmoji] = useState("");
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
-  const [mapLat, mapLng] = useUrlPosition();
+  const [lat, lng] = useUrlPosition();
   const { createCity, isLoading } = useCities();
   const navigate = useNavigate();
   function handleSubmit(e) {
@@ -40,24 +40,24 @@ function Form() {
       emoji,
       date,
       notes,
-      position: { mapLat, mapLng },
+      position: { lat, lng },
     };
+    console.log(newCity);
 
     createCity(newCity);
     navigate("/app/cities");
   }
   useEffect(
     function () {
-      if (!mapLat && !mapLng) return;
+      if (!lat && !lng) return;
       async function getCityData() {
         try {
           setIsLoadingData(true);
           setGeocodingError("");
           const res = await fetch(
-            `${Base_Url}?latitude=${mapLat}&longitude=${mapLng}`
+            `${Base_Url}?latitude=${lat}&longitude=${lng}`
           );
           const data = await res.json();
-          console.log(data);
           if (!data.countryCode)
             throw new Error(
               "There doesnt seem to be such a city. Click somewhere else "
@@ -73,9 +73,9 @@ function Form() {
       }
       getCityData();
     },
-    [mapLat, mapLng]
+    [lat, lng]
   );
-  if (!mapLat && !mapLng)
+  if (!lat && !lng)
     return <Message message={"you have to first click on the map"} />;
   if (isLoadingData) return <Spinner />;
   if (geocodingError) return <Message message={geocodingError} />;
