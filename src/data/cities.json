@@ -95,6 +95,18 @@
         "lng": "12.392578125"
       },
       "id": 7400
+    },
+    {
+      "cityName": "Felanitx",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-02-17T13:40:04.449Z",
+      "notes": "cool trip mehnn",
+      "position": {
+        "lat": "39.52099229357195",
+        "lng": "3.09814453125"
+      },
+      "id": 7401
     }
   ]
 }
