@@ -13,18 +13,6 @@
       "id": 7393
     },
     {
-      "cityName": "Barcelona",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
-      "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": 1780
-    },
-    {
       "cityName": "Helechosa de los Montes",
       "country": "Spain",
       "emoji": "🇪🇸",
@@ -83,6 +71,30 @@
         "lng": "4.482421875000001"
       },
       "id": 7398
+    },
+    {
+      "cityName": "Merens-les-Vals",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2024-01-26T18:11:41.677Z",
+      "notes": "bree and i been there",
+      "position": {
+        "lat": "42.601619944327965",
+        "lng": "1.8676757812500002"
+      },
+      "id": 7399
+    },
+    {
+      "cityName": "Santarcangelo",
+      "country": "Italy",
+      "emoji": "🇮🇹",
+      "date": "2024-02-07T09:05:08.236Z",
+      "notes": "smoked hella weed ",
+      "position": {
+        "lat": "44.05601169578525",
+        "lng": "12.392578125"
+      },
+      "id": 7400
     }
   ]
 }

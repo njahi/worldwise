@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import styles from "./CityItem.module.css";
 import { useCities } from "../context/CityContext";
@@ -10,7 +11,7 @@ const formatDate = (date) =>
     year: "numeric",
   }).format(new Date(date));
 
-export default function CityItem({ city }) {
+const cityItem = memo(function CityItem({ city }) {
   const { cityName, emoji, date, id, position } = city;
   const { currentCity, deleteCity } = useCities();
   function handleClick(e) {
@@ -35,4 +36,5 @@ export default function CityItem({ city }) {
       </Link>
     </li>
   );
-}
+});
+export default cityItem;
