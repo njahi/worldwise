@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
+import { useCallback } from "react";
 import { createContext, useState, useEffect, useContext } from "react";
 
 const CityContext = createContext();
@@ -23,6 +24,7 @@ function CitiesProvider({ children }) {
     }
     fetchCities();
   }, []);
+  // used the usecallback hook to memoize the get city function passed down to component via the context
   async function getCity(id) {
     try {
       seTIsLoading(true);

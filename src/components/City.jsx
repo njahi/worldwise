@@ -20,12 +20,12 @@ function City() {
   const { id } = useParams();
   const { cities, getCity, currentCity, isLoading } = useCities();
   const { cityName, emoji, date, notes } = currentCity;
-
+  // added the getcity function to the dependency array
   useEffect(
     function () {
       getCity(id);
     },
-    [id]
+    [id, getCity]
   );
   if (isLoading) return <Spinner />;
   return (
