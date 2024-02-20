@@ -24,7 +24,7 @@ function CitiesProvider({ children }) {
     }
     fetchCities();
   }, []);
-
+  // used the usecallback hook to memoize the get city function passed down to component via the context
   const getCity = useCallback(async function getCity(id) {
     try {
       seTIsLoading(true);
