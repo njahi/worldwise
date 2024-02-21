@@ -21,66 +21,65 @@ function App() {
     <AuthProvider>
       <CitiesProvider>
         <BrowserRouter>
-          <Suspense>
-            <SpinnerFullPage />
-          </Suspense>
-          <Routes>
-            <Route
-              index
-              element={<HomePage />}
-            />
-            <Route
-              path='product'
-              element={<Product />}
-            />
-            <Route
-              path='pricing'
-              element={<Pricing />}
-            />
-            <Route
-              path='login'
-              element={<Login />}
-            />
-
-            <Route
-              path='app'
-              element={
-                <ProtectedRoute>
-                  <AppLayout />
-                </ProtectedRoute>
-              }>
+          <Suspense fallback={<SpinnerFullPage />}>
+            <Routes>
               <Route
                 index
-                element={
-                  <Navigate
-                    replace
-                    to='cities'
-                  />
-                }
+                element={<HomePage />}
               />
               <Route
-                path='cities'
-                element={<CityList />}
+                path='product'
+                element={<Product />}
               />
               <Route
-                path='cities/:id'
-                element={<City />}
+                path='pricing'
+                element={<Pricing />}
+              />
+              <Route
+                path='login'
+                element={<Login />}
               />
 
               <Route
-                path='countries'
-                element={<CountryList />}
-              />
+                path='app'
+                element={
+                  <ProtectedRoute>
+                    <AppLayout />
+                  </ProtectedRoute>
+                }>
+                <Route
+                  index
+                  element={
+                    <Navigate
+                      replace
+                      to='cities'
+                    />
+                  }
+                />
+                <Route
+                  path='cities'
+                  element={<CityList />}
+                />
+                <Route
+                  path='cities/:id'
+                  element={<City />}
+                />
+
+                <Route
+                  path='countries'
+                  element={<CountryList />}
+                />
+                <Route
+                  path='form'
+                  element={<Form />}
+                />
+              </Route>
               <Route
-                path='form'
-                element={<Form />}
+                path='*'
+                element={<PageNotFound />}
               />
-            </Route>
-            <Route
-              path='*'
-              element={<PageNotFound />}
-            />
-          </Routes>
+            </Routes>
+          </Suspense>
         </BrowserRouter>
       </CitiesProvider>
     </AuthProvider>
