@@ -1,12 +1,13 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { CitiesProvider } from "./context/CityContext";
 import { AuthProvider } from "./context/fakeAuthContext";
-import { lazy } from "react";
+import { Suspense, lazy } from "react";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import CityList from "./components/CityList";
 import CountryList from "./components/CountryList";
 import City from "./components/City";
 import Form from "./components/Form";
+import SpinnerFullPage from "./components/SpinnerFullPage";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const Product = lazy(() => import("./pages/Product"));
@@ -20,6 +21,9 @@ function App() {
     <AuthProvider>
       <CitiesProvider>
         <BrowserRouter>
+          <Suspense>
+            <SpinnerFullPage />
+          </Suspense>
           <Routes>
             <Route
               index
